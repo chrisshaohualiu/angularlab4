@@ -1,0 +1,26 @@
+<form #newItemForm="ngForm" (submit)="addItem(newItemForm)">
+    <label for="product">Product name</label>
+    <input type="text" name="product" id="product" ngModel>
+    <label for="price">Price</label>
+    <input type="number" name="price" id="price" ngModel>
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity" ngModel>
+    <button>Add Item</button>
+</form>
+<ul>
+    <li class="list-item" *ngFor="let item of cartItems">
+        <div>
+            <div class="item-attribute">{{item.product}}</div>
+            <div class="item-attribute">{{item.price}}</div>
+            <div class="item-attribute">{{item.quantity}}</div>
+            <button>Edit</button>
+        </div>
+        <form #editForm="ngForm" (submit)="editItem(editForm, item.id)">
+            <input type="text" name="product" placeholder="{{item.product}}" ngModel>
+            <input type="number" name="price" placeholder="{{item.price}}" ngModel>
+            <input type="number" name="quantity" placeholder="{{item.quantity}}" ngModel>
+            <button>Apply changes</button>
+        </form>
+        <button (click)="deleteItem(item.id)">X</button>
+    </li>
+</ul>

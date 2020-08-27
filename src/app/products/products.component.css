@@ -1,0 +1,9 @@
+.list-item{
+    list-style: none;
+}
+
+.item-attribute{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
